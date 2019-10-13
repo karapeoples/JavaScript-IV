@@ -44,7 +44,7 @@ constructor(sAttrs){
 }
 
 listsSubjects(){
-    return this.favSubjects
+    return this.favSubjects;
 }
 
 PRAssignment(subject){
@@ -52,7 +52,7 @@ PRAssignment(subject){
 }
 
 sprintChallenge(subject){
-    (`${this.name} has begun sprint challenge on ${subject}`);
+   return (`${this.name} has begun sprint challenge on ${subject}`);
 }
 }
 
@@ -68,33 +68,33 @@ standUp(channel){
     return (`${this.name} announces to ${channel} @channel standup time!`);
 }
 
-debugsCode(subject){
+debugsCode(student, subject){
     return (`${this.name} debugs ${student.name}'s code on ${subject}`);
 }
 }
 
 
 
-const teacher = new Instructor = {
+const teacher = new Instructor({
     name: "Josh Knell",
-    age: "unkown",
+    age: "unknown",
     location: "Lambda",
     specialty: "Javascript",
     favLanguage: "Javascript",
     catchPhrase: "none",
-}
+})
 
 
-const educatee = new Student = {
+const educatee = new Student({
     name: "Kara",
     age: 40,
     location: "Oklahoma",
     previousBackground: "none",
     className: "WebPT11",
     favSubjects: ["HTML", "CSS", "More to Come"],
-}
+})
 
-const tl = new teamLead = {
+const tl = new teamLead({
     name: "Leigh",
     age: "unknown",
     location: "Lambda",
@@ -103,4 +103,24 @@ const tl = new teamLead = {
     catchPhrase: "none",
     gradClassName: "FT",
     favInstructor: "lots",
-}
+})
+const subject = "Javascript";
+const channel = "webpt11l_martin"
+
+//!speak
+console.log(teacher.speak());
+console.log(educatee.speak());
+console.log(tl.speak());
+
+//@ Instructor Methods
+console.log(teacher.demo(subject));
+console.log(teacher.grade(educatee, subject));
+
+//# Student Methods
+console.log(educatee.listsSubjects());
+console.log(educatee.PRAssignment(subject));
+console.log(educatee.sprintChallenge(subject));
+
+//$ TeamLead Methods
+console.log(tl.standUp(channel));
+console.log(tl.debugsCode(educatee, subject));
